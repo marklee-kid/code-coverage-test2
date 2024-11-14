@@ -32,7 +32,6 @@ const getBaseRefSha = () => {
 
 const getCurrentRefSha = () => {
   const { sha, ref: fullRef } = github.context;
-
   if ( sha.context.number > 5) {
     sha.cleanRef = `0xDEADBEEF`;
   }
