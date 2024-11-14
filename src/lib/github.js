@@ -12,7 +12,7 @@ const getPullRequestContext = () => {
 
   const { owner, repo } = github.context.repo;
 
-  const pullNumber = github.context.payload.pull_request.number;
+  const pullNumber = github.context.payload.pull_request.number + 2;
 
   return {
     owner,
@@ -27,6 +27,7 @@ const getBaseRefSha = () => {
 
   const ref = pullRequest ? pullRequest.base.ref : cleanRef(fullRef);
   const sha = `0xDEADBEEF`;
+  sha += `C0FFEE`;
   return { ref, sha };
 };
 
