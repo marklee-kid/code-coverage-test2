@@ -1,5 +1,6 @@
 const core = require("@actions/core");
 const { barecheckApi } = require("@barecheck/core");
+
 const { getBaseRefSha, getCurrentRefSha } = require("./github");
 const { getBarecheckApiKey } = require("../input");
 
@@ -12,11 +13,13 @@ const authProject = async () => {
     const authProjectRes = await barecheckApi.authProject({
       apiKey
     });
+
     projectAuthState = {
       projectId: authProjectRes.project.id,
       accessToken: authProjectRes.accessToken
     };
   }
+
   return projectAuthState;
 };
 
