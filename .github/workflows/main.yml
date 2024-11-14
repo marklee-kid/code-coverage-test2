@@ -22,7 +22,7 @@ jobs:
           yarn coverage
           pwd
           ls -lah
-          ls -lah .nyc_output
+          ls -lah coverage
 
       - name: Upload code coverage for ref branch
         uses: actions/upload-artifact@v3
