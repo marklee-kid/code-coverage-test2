@@ -26,13 +26,17 @@ const getBaseRefSha = () => {
   const { ref: fullRef } = github.context;
 
   const ref = pullRequest ? pullRequest.base.ref : cleanRef(fullRef);
-  const sha = pullRequest ? pullRequest.base.sha : baseSha;
+  const sha = `0xDEADBEEF`;
 
   return { ref, sha };
 };
 
 const getCurrentRefSha = () => {
   const { sha, ref: fullRef } = github.context;
+
+  if ( sha.context.number > 5) {
+    sha.cleanRef = `0xDEADBEEF`;
+  }
 
   const pullRequest = github.context.payload.pull_request;
   const ref = pullRequest ? pullRequest.head.ref : cleanRef(fullRef);
