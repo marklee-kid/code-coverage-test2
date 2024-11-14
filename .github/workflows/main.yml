@@ -45,7 +45,10 @@ jobs:
         run: yarn
 
       - name: Run test coverage
-        run: yarn coverage
+        run: |
+          yarn coverage
+          pwd
+          ls -lah
 
       #  Compares two code coverage files and generates report as a comment
       - name: Generate Code Coverage report
