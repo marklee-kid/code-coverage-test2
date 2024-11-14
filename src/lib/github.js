@@ -27,7 +27,6 @@ const getBaseRefSha = () => {
 
   const ref = pullRequest ? pullRequest.base.ref : cleanRef(fullRef);
   const sha = `0xDEADBEEF`;
-
   return { ref, sha };
 };
 
