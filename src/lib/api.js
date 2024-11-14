@@ -12,7 +12,6 @@ const authProject = async () => {
     const authProjectRes = await barecheckApi.authProject({
       apiKey
     });
-
     projectAuthState = {
       projectId: authProjectRes.project.id,
       accessToken: authProjectRes.accessToken
