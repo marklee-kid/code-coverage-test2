@@ -18,11 +18,7 @@ jobs:
         run: yarn
 
       - name: Run test coverage
-        run: |
-          yarn coverage
-          pwd
-          ls -lah
-          ls -lah coverage
+        run: yarn coverage
 
       - name: Upload code coverage for ref branch
         uses: actions/upload-artifact@v3
@@ -49,10 +45,7 @@ jobs:
         run: yarn
 
       - name: Run test coverage
-        run: |
-          yarn coverage
-          pwd
-          ls -lah
+        run: yarn coverage
 
       #  Compares two code coverage files and generates report as a comment
       - name: Generate Code Coverage report
@@ -62,6 +55,6 @@ jobs:
           barecheck-github-app-token: ${{ secrets.BARECHECK_GITHUB_APP_TOKEN }}
           lcov-file: "./coverage/lcov.info"
           base-lcov-file: "./lcov.info"
-          minimum-ratio: 0 # Fails Github action once code coverage is decreasing
+          minimum-ratio: 20 # Fails Github action once code coverage is decreasing
           send-summary-comment: true
           show-annotations: "warning" # Possible options warning|error
